@@ -77,6 +77,14 @@ function ends_quiz(){
             typeAnimated: true,
             buttons: {
                 close: function () {
+                    document.getElementById("QuizNumber").textContent=""
+                    document.getElementById("RemainingTime").textContent=""
+                    document.getElementById("RemainingQuestions").textContent=""
+                    document.getElementById("CurrentQuestionDisplayed").textContent=""
+                    document.getElementById("MultipleChoice1").textContent=""
+                    document.getElementById("MultipleChoice2").textContent=""
+                    document.getElementById("MultipleChoice3").textContent=""
+                    document.getElementById("MultipleChoice4").textContent=""
                 }
             }
         });
@@ -91,10 +99,21 @@ function ends_quiz(){
             typeAnimated: true,
             buttons: {
                 close: function () {
+                    console.log("I am here")
+                    document.getElementById("QuizNumber").textContent=""
+                    document.getElementById("RemainingTime").textContent=""
+                    document.getElementById("RemainingQuestions").textContent=""
+                    document.getElementById("CurrentQuestionDisplayed").textContent=""
+                    document.getElementById("MultipleChoice1").textContent=""
+                    document.getElementById("MultipleChoice2").textContent=""
+                    document.getElementById("MultipleChoice3").textContent=""
+                    document.getElementById("MultipleChoice4").textContent=""
                 }
             }
         });  // end of message
     }        // end if if
+
+    // cleans up the last questions/answers, remaining time and remaining number of questions
 
 
 };           // end of function
@@ -118,6 +137,8 @@ function timer_function() {
 //***************************************************************************************/
 
 function sets_question(question) {
+
+    document.getElementById("RemainingQuestions").textContent="Remaining # questions: "+(quiz_length-question);
     document.getElementById("CurrentQuestionDisplayed").textContent=quizzes[quiz_number][question].title;
     document.getElementById("MultipleChoice1").textContent=quizzes[quiz_number][question].choices[0];
     document.getElementById("MultipleChoice2").textContent=quizzes[quiz_number][question].choices[1];
@@ -151,7 +172,7 @@ function checks_answers(event) {
     else if (event.target.id==="MultipleChoice3") {var user_answer=2}
     else if (event.target.id==="MultipleChoice4") {var user_answer=3}
 
-    // evaluating whether the answer is correct or not
+     // evaluating whether the answer is correct or not
 
     if(quizzes[quiz_number][current_question].choices[user_answer]===quizzes[quiz_number][current_question].answer) {     // true if user answered correctly
         correct_answers++  // keeps track of correct answers
@@ -221,11 +242,13 @@ console.log(player_name)
 
 if(player_name.length>0){                    // Name shouldn't be empty
     
-    var quiz_number=Math.floor(Math.random()*3);           //  contains the quiz number.  Could be 0, 1, or 2.
-    var total_quiz_time=15*quizzes[quiz_number].length;    // Total time allowed to finish the quiz (15 seconds per question
-    timer_variable=setInterval(timer_function, 1000);
+    var quiz_number=Math.floor(Math.random()*3);           //  Chooses quiz number randomly.  Could be 0, 1, or 2.
+    var quiz_length=quizzes[quiz_number].length;           //  Number of questions for the quiz
+    var total_quiz_time=15*quiz_length;                    //  Total time allowed to finish the quiz (15 seconds per question
+    timer_variable=setInterval(timer_function, 1000);      //  Set event, triggered every second
     document.getElementById("QuizNumber").textContent="Quiz number: "+quiz_number;
     document.getElementById("RemainingTime").textContent="Remaining time:  "+total_quiz_time; 
+    document.getElementById("RemainingQuestions").textContent="Remaining # questions: "+quiz_length; 
     document.getElementById("MultipleChoice1").addEventListener("click",checks_answers);
     document.getElementById("MultipleChoice2").addEventListener("click",checks_answers);
     document.getElementById("MultipleChoice3").addEventListener("click",checks_answers);
