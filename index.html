@@ -1,0 +1,159 @@
+<!--**********************************************************************-->
+<!-- This program generates a timed test                                  -->
+<!--**********************************************************************-->
+
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+     <title>Marco Carrillo© Timed Testing</title>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!--***********************************************-->
+    <!-- Adding a video background for special effects -->
+    <!--***********************************************-->
+    
+    
+    <!--*************************************************************-->
+    <!--  Displaying main page.  It has 6 rows as follows            -->
+    <!--  First row:  The title of what is being done, and timing    -->
+    <!--  Second row:  Displays the question                         -->
+    <!--  Third row:  Displays multiple choice 1                     -->
+    <!--  Fourth row:  Displays multiple choice 2                    -->
+    <!--  Fifth row:  Displays multiple choice 3                     -->
+    <!--  Sixth row:  Displays multiple choice 4                     -->
+    <!--  Seventh row:  Displays whether the user was right or not   -->
+    <!--  Eigth row:  Displays the cummulative score for the user    -->
+    <!--*************************************************************-->
+    
+    <div class="container bg-white my-5">  <!--main wrapper-->
+
+          <!--**************************************-->
+          <!--First row:  The title of what this is -->
+          <!--**************************************-->
+
+         <div class="row text-center">
+               
+            <div class="col-sm"></div>
+            <div class="col-sm-2" id="timer"></div>
+          
+            <div class="col-sm-6 justify-content-center">
+                <h2>Timed quiz generator</h2>
+            </div>
+
+            <div class="col-sm-2"></div>
+            <div class="col-sm"></div>
+         </div>  <!-- first row ends here-->
+
+          <!--**********************************************************************-->
+          <!--Second row:  This is going to be the question.  Will change everytime -->
+          <!--**********************************************************************-->
+
+         <div class="row border justify-content-center">  
+
+               <div class="col-sm-12 justify-content-center text-center">
+                    <h3>This is question number 1</h3>
+               </div>
+
+          </div>  <!--second row ends here-->
+
+          <!--********************************************-->
+          <!--Third row:  First multiple choice, centered -->
+          <!--********************************************-->
+
+         <div class="row justify-content-center">  
+
+               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
+                    <button type="button" id="MultChoice1" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 1</button>  
+               </div>
+         </div>  <!-- third row ends here-->
+
+          <!--******************************************-->
+          <!--Forth row:  Multiple choice # 2, centered -->
+          <!--******************************************-->
+
+          <div class="row justify-content-center">  
+
+               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
+                    <button type="button" id="MultChoice2" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 2</button>  
+               </div>
+          </div>  <!-- fourth row ends here-->
+
+          <!--******************************************-->
+          <!--Fifth row:  Multiple choice # 3, centered -->
+          <!--******************************************-->
+
+          <div class="row justify-content-center">  
+
+               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
+                    <button type="button" id="MultChoice3" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 3</button>  
+               </div>
+          </div>  <!-- fifth row ends here-->
+
+          <!--******************************************-->
+          <!--sixth row:  Multiple choice # 4, centered -->
+          <!--******************************************-->
+
+          <div class="row justify-content-center">  
+
+               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
+                    <button type="button" id="MultChoice4" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 4</button>  
+               </div>
+          </div>  <!-- sixth row ends here-->
+
+          <!--***********************************************-->
+          <!--seventh row:  whether user got it right or not -->
+          <!--***********************************************-->
+
+          <div class="row justify-content-center">  
+
+               <div class="col-sm-12 justify-content-center text-center">
+                    <h3 id="outcome">You got it right!!!!</h3>
+               </div>
+
+          </div>  <!-- seventh row ends here-->
+
+          <!--*******************************-->
+          <!--eight row:  cummulative score  -->
+          <!--*******************************-->
+
+          <div class="row justify-content-center">  
+
+               <div class="col-sm-12 justify-content-center text-center">
+                    <h3 id="score">Your score so far is x/y</h3>
+               </div>
+
+          </div>  <!-- seventh row ends here-->
+
+
+    </div>   <!-- main wrapper-->
+     
+    <!--******************************************************-->
+    <!-- Downloading JQuery to enable menu responsive design  -->
+    <!--******************************************************-->
+
+     
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <script src="assets/js/questions.js"></script>     <!-- Contains the questions/multiple choices/answer for each question-->
+
+     <script>
+
+          /***************************************************************************************************/
+          // Following section hides the message to the user, and the value of the password generated
+          // This hidding is eliminated when the user clicks on button generate random password and it is
+          // hidden again if user clicks on button restore defaults
+          /***************************************************************************************************/
+
+          document.getElementById("outcome").style.display="none";  // hides the outcome of the answer (no answer yet)
+          document.getElementById("score").innerText="Your score is 0/20"  // At the start, it sets the score to 0
+      </script>
+
+</body>
+</html>
