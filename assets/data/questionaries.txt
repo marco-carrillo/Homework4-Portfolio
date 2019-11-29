@@ -1,8 +1,0 @@
-0,What is the appearance of a question that I want,water,soil,fire,air,air
-0,How many days -3 does the week has,one,two,three,four,four
-0,How many weeks are in a year,61,52,32,88,52
-0,How many fingers do we have,one,three,five,seven,five
-1,Best way of transportation,car,boat,airplane,by foot,airplane
-1,Total number of names for seasons in the year,four,five,six,seven,five
-1,Chemical formula for water,HO,H02,H20,H2O,H2O
-1,What year is next year,2019,2020,2018,2022,2020

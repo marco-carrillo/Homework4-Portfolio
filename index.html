@@ -10,6 +10,7 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -30,130 +31,168 @@
     <!--  Seventh row:  Displays whether the user was right or not   -->
     <!--  Eigth row:  Displays the cummulative score for the user    -->
     <!--*************************************************************-->
-    
-    <div class="container bg-white my-5">  <!--main wrapper-->
 
-          <!--**************************************-->
-          <!--First row:  The title of what this is -->
-          <!--**************************************-->
+    <div class="container"> <!--  Main wrapper -->
 
-         <div class="row text-center">
+          <!--*********************************************************************************************************-->
+          <!-- This first row displays the quiz name, the title of the game (Timed quiz), and remaining time/questions -->
+          <!--*********************************************************************************************************-->
+
+          <div class="row" id="HeaderRow">   <!-- first row:  Header -->
+
+                    <div class="col-sm-3 border align-text-center">
+                         <h5 id="QuizNumber">Quiz number:</h5>
+                    </div>
+
+                    <div class="col-sm border text-center">
+                         <h5>Timed quiz</h5>
+                    </div>
+
+                    <div class="col-sm border">   <!-- Last column of first row will be split into two rows-->
+                         <div class="row">
+                              <h5 id="RemainingTime">Remaining time:</h5>
+                         </div>
+                         <div class="row">
+                              <h5>Remaining # questions</h5>
+                         </div>
+
+                    </div>
+
+          </div>  <!-- first row-->
+
+          <!--**************************************************************************************-->
+          <!-- Second row only displays information on the left pane.  white space on the right pane-->
+          <!--**************************************************************************************-->
+
+          <div class="row" id="SecondRow">
+               <div class="col-sm-3 border-left border-right left-pane">
+                    <h6 class="font-weight-bold" id="CurrentPlayerName">Current Player:</h6>
+               </div>
+               <div class="col-sm-9 right-pane">
+
+               </div>
+          </div>
+
+          <!--**************************************************************************************-->
+          <!-- third row displays name of player on left pane, and the question on the right pane -->
+          <!--**************************************************************************************-->
+
+          <div class="row" id="ThirdRow">
+               <div class="col-sm-3 left-pane">
+                    <h6 class="font-weight-bold" id=CurrentPlayerName></h6>
+               </div>
                
-            <div class="col-sm"></div>
-            <div class="col-sm-2" id="timer"></div>
-          
-            <div class="col-sm-6 justify-content-center">
-                <h2>Timed quiz generator</h2>
-            </div>
-
-            <div class="col-sm-2"></div>
-            <div class="col-sm"></div>
-         </div>  <!-- first row ends here-->
-
-          <!--**********************************************************************-->
-          <!--Second row:  This is going to be the question.  Will change everytime -->
-          <!--**********************************************************************-->
-
-         <div class="row border justify-content-center">  
-
-               <div class="col-sm-12 justify-content-center text-center">
-                    <h3>This is question number 1</h3>
+               <div class="col-sm-9 right-pane">
+                    <h5 id="CurrentQuestionDisplayed">Question:  </h5 >
                </div>
+          </div>
 
-          </div>  <!--second row ends here-->
+          <!--**************************************************************************************-->
+          <!-- Fourth row displays # of right questions answered on the left pane, right pane empty -->
+          <!--**************************************************************************************-->
 
-          <!--********************************************-->
-          <!--Third row:  First multiple choice, centered -->
-          <!--********************************************-->
-
-         <div class="row justify-content-center">  
-
-               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
-                    <button type="button" id="MultChoice1" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 1</button>  
+          <div class="row" id="FourthRow">
+               <div class="col-sm-3 left-pane">
+                    <h6 id="NbrRightAnswers"># correct: 0</h6>
                </div>
-         </div>  <!-- third row ends here-->
-
-          <!--******************************************-->
-          <!--Forth row:  Multiple choice # 2, centered -->
-          <!--******************************************-->
-
-          <div class="row justify-content-center">  
-
-               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
-                    <button type="button" id="MultChoice2" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 2</button>  
+               
+               <div class="col-sm-9 right-pane">
                </div>
-          </div>  <!-- fourth row ends here-->
+          </div>
+ 
+          <!--******************************************************************************************-->
+          <!-- Fifth row displays # of incorrect questions answered on the left pane, right pane empty  -->
+          <!--******************************************************************************************-->
 
-          <!--******************************************-->
-          <!--Fifth row:  Multiple choice # 3, centered -->
-          <!--******************************************-->
-
-          <div class="row justify-content-center">  
-
-               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
-                    <button type="button" id="MultChoice3" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 3</button>  
+          <div class="row" id="FifthRow">
+               <div class="col-sm-3 left-pane">
+                    <h6 id="NbrWrongAnswers"># incorrect: 0</h6>
                </div>
-          </div>  <!-- fifth row ends here-->
-
-          <!--******************************************-->
-          <!--sixth row:  Multiple choice # 4, centered -->
-          <!--******************************************-->
-
-          <div class="row justify-content-center">  
-
-               <div class="col-sm-12 my-3">   <!--buttom that clears the screen-->
-                    <button type="button" id="MultChoice4" class="btn btn-info btn-lg rounded-pill btn-block">Multiple choice 4</button>  
+               
+               <div class="col-sm-9 right-pane">
                </div>
-          </div>  <!-- sixth row ends here-->
+          </div>
 
-          <!--***********************************************-->
-          <!--seventh row:  whether user got it right or not -->
-          <!--***********************************************-->
+          <!--******************************************************************************************-->
+          <!-- Sixth row displays the list of top scorere on the left pane, on the right pane, it does  -->
+          <!-- display the four multiple answer choices so that user can choose best answer             -->
+          <!--******************************************************************************************-->
 
-          <div class="row justify-content-center">  
-
-               <div class="col-sm-12 justify-content-center text-center">
-                    <h3 id="outcome">You got it right!!!!</h3>
+          <div class="row" id="SixthRow">
+               <div class="col-sm-3 left-pane">
+                    <br>
+                    <h6>Highest scores</h6>
+                    <ol>
+                         <li id="N1score"><h6></h6></li>
+                         <li id="N2score"></li>
+                         <li id="N3score"></li>
+                         <li id="N4score"></li>
+                         <li id="N5score"></li>
+                    </ol>
                </div>
+               
+               <div class="col-sm-9 right-pane">  <!--contains all four buttons, so we will subdivide this into 4 rows-->
+                    <div class="row">  <!-- multiple choice answer 1-->
+                         <div class="container mx-5 my-1">
+                              <button type="button" id="MultipleChoice1" class="btn button-container btn-lg rounded-pill btn-block">Multiple choice 1</button> 
+                         </div> 
+                    </div>
 
-          </div>  <!-- seventh row ends here-->
+                    <div class="row">  <!-- multiple choice answer 2-->
+                         <div class="container mx-5 my-1">
+                              <button type="button" id="MultipleChoice2" class="btn button-container btn-lg rounded-pill btn-block">Multiple choice 2</button> 
+                         </div> 
+                    </div>
 
-          <!--*******************************-->
-          <!--eight row:  cummulative score  -->
-          <!--*******************************-->
+                    <div class="row">  <!-- multiple choice answer 3-->
+                         <div class="container mx-5 my-1">
+                              <button type="button" id="MultipleChoice3" class="btn button-container btn-lg rounded-pill btn-block">Multiple choice 3</button> 
+                         </div> 
+                    </div>
 
-          <div class="row justify-content-center">  
-
-               <div class="col-sm-12 justify-content-center text-center">
-                    <h3 id="score">Your score so far is x/y</h3>
+                    <div class="row">  <!-- multiple choice answer 4-->
+                         <div class="container mx-5 mt-1 mb-3">
+                              <button type="button" id="MultipleChoice4" class="btn button-container btn-lg rounded-pill btn-block">Multiple choice 4</button> 
+                         </div> 
+                    </div>
                </div>
+          </div>
 
-          </div>  <!-- seventh row ends here-->
 
+          <!--****************************************************************-->
+          <!-- Seventh row displays whether the user is correct or incorrect  -->
+          <!--****************************************************************-->
 
-    </div>   <!-- main wrapper-->
+          <div class="row bottom-class" id="footer_container">
+               <div class="col-sm-3 left-pane"></div>
+
+               <div class="col-sm-9 align-self-center">
+                    <h5 id="right_or_wrong_msg"></h5>
+               </div>
+          </div>
+
+     </div> <!--main wrapper-->
      
-    <!--******************************************************-->
-    <!-- Downloading JQuery to enable menu responsive design  -->
-    <!--******************************************************-->
+    <!--*****************************-->
+    <!-- Bootstrap needed libraries  -->
+    <!--*****************************-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 
-     
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--******************-->
+    <!-- CDNJS JQuery     -->
+    <!--******************-->
+
+    <link rel="stylesheet" href="assets/plugins/jquery-confirm.min.css">
+    <script src="assets/plugins/jquery-confirm.min.js"></script>
+
+    <!--******************-->
+    <!-- Program add-ons  -->
+    <!--******************-->
      <script src="assets/js/questions.js"></script>     <!-- Contains the questions/multiple choices/answer for each question-->
+     <script src="assets/js/script.js"></script>        <!-- Contains the questions/multiple choices/answer for each question-->
 
-     <script>
-
-          /***************************************************************************************************/
-          // Following section hides the message to the user, and the value of the password generated
-          // This hidding is eliminated when the user clicks on button generate random password and it is
-          // hidden again if user clicks on button restore defaults
-          /***************************************************************************************************/
-
-          document.getElementById("outcome").style.display="none";  // hides the outcome of the answer (no answer yet)
-          document.getElementById("score").innerText="Your score is 0/20"  // At the start, it sets the score to 0
-      </script>
 
 </body>
 </html>
