@@ -185,25 +185,18 @@ function checks_answers(event) {
 
 function asks_name(){
 
-    //  asking for user name
+    //  asking for user name until a non-null name is obtained
 
- 
-    do{
-    $.MessageBox({
-        input    : true,
-        message  : "What's your name?"
-      }).done(function(player_name){
-        if ($.trim(player_name)) {
-          $.MessageBox("Hi <b>"+player_name+"</b>!");
-         }
-      });
+     do{
+         player_name=prompt("Please enter your name")
     } while (player_name.length<=0);
+
 
     // Updating user name on dashboard
 
+    localStorage.setItem("player_name",player_name);
     document.getElementById("CurrentPlayerName").textContent="Current Player:  "+player_name;
-
-
+    
 }  //function asks name
 
 
@@ -217,7 +210,10 @@ function asks_name(){
 var correct_answers=0;                       // Holds number of questions user has answered correctly
 var incorrect_answers=0;                     // Holds number of questions user has answered incorrectly
 var top_scores=JSON.parse(localStorage.getItem("top_scores"))  //  Array with top 5 scorers.  Values retrieved from local storage
-var player_name='';                          // Holds player name
+
+// retrieves data from local storage.  Function asks_name updates name to local storage.
+
+var player_name=localStorage.getItem("player_name");                          // Holds player name
 asks_name();
 
 console.log(player_name)
