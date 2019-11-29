@@ -96,6 +96,7 @@ function ends_quiz(){
         });  // end of message
     }        // end if if
 
+
 };           // end of function
 
 
