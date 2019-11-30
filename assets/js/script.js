@@ -99,7 +99,6 @@ function ends_quiz(){
             typeAnimated: true,
             buttons: {
                 close: function () {
-                    console.log("I am here")
                     document.getElementById("QuizNumber").textContent=""
                     document.getElementById("RemainingTime").textContent=""
                     document.getElementById("RemainingQuestions").textContent=""
@@ -238,11 +237,10 @@ var top_scores=JSON.parse(localStorage.getItem("top_scores"))  //  Array with to
 var player_name=localStorage.getItem("player_name");                          // Holds player name
 asks_name();
 
-console.log(player_name)
 
 if(player_name.length>0){                    // Name shouldn't be empty
     
-    var quiz_number=Math.floor(Math.random()*3);           //  Chooses quiz number randomly.  Could be 0, 1, or 2.
+    var quiz_number=Math.floor(Math.random()*quizzes.length);           //  Chooses quiz number randomly.  Could be 0, 1, or 2.
     var quiz_length=quizzes[quiz_number].length;           //  Number of questions for the quiz
     var total_quiz_time=15*quiz_length;                    //  Total time allowed to finish the quiz (15 seconds per question
     timer_variable=setInterval(timer_function, 1000);      //  Set event, triggered every second
