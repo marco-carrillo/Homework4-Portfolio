@@ -5,7 +5,7 @@ This application allows users to take a quiz that was setup with 8 questions.  T
 
 ## Functionality
 
-The application starts by asking the user to enter his or her name.  Although the homework didn't require us to ask for a name upfront and only ask for the name once the user scored higher than the higher score on file, we decided to provide a more personalized experience and proveide the name of the user on the dashboard while the quiz was in progress.
+The application starts by asking the user to enter his or her name.  Although the homework didn't require us to ask for a name upfront and only ask for the name once the user scored higher than the higher score on file, we decided to provide a more personalized experience and provide the name of the user on the dashboard while the quiz was in progress.
 
 The user will enter his or her name, and the application will wish them good luck and quickly move to start the timer, and provide the first question.
 
@@ -35,9 +35,9 @@ The quiz provides the user with ample feedback.  It provides the following infor
 
 The score for the current user will be whatever time left is on the clock when the quiz ends.  Negative scores are allowed.
 
-Upon completion of the quiz, the program will compare the current user score agains the top 5 scores.  If the user scored higher than the lowest top five scores, then the user name will be added  to the top scorer list displacing the lowest top five score.
+Upon completion of the quiz, the program will compare the current user score agains the top 5 scores.  If the user scored higher than the lowest top five scores, then the user name will be added to the top five scores list.
 
-If the user makes it to the top 5 scores, the program will indicate it and will inmediately add the user name to the table.
+If the user makes it to the top 5 scores, the program will indicate so and will inmediately add the user name to the table.
 
 ## Additional functionality
 
